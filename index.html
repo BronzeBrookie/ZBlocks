@@ -1,0 +1,192 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#20201d">
+  <meta name="description" content="Browse minifigures at ZBlock, the Burmese LEGO marketplace.">
+  <title>ZBlock — Minifigure Market</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="brand-group">
+      <a class="logo" href="#" aria-label="ZBlock home">
+        <img
+          src="Images/Smiling LEGO Head with Curtain Hair.png"
+          alt="ZBlock logo"
+          width="48"
+          height="48"
+        >
+      </a>
+
+      <a class="brand" href="#" aria-label="ZBlock home">
+        <span>
+          <strong>ZBlocks</strong>
+          <small>THE BURMESE LEGO MARKETPLACE</small>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="eyebrow">
+        <span class="dot"></span>
+        A COLLECTOR'S LITTLE CORNER
+      </div>
+
+      <h1>
+        Find your next<br>
+        <span>favorite figure.</span>
+      </h1>
+
+      <p>
+        Browse the collection, check availability, and find your next addition.
+      </p>
+
+      <a class="button button-yellow" href="#collection">
+        Explore the collection <span aria-hidden="true">↓</span>
+      </a>
+
+      <div class="hero-stats">
+        <div>
+          <strong id="available-count">0</strong>
+          <span>designs in stock</span>
+        </div>
+
+        <div>
+          <strong id="unit-count">0</strong>
+          <span>figures available</span>
+        </div>
+      </div>
+
+      <div class="hero-decoration" aria-hidden="true">
+        <span class="brick brick-one"></span>
+        <span class="brick brick-two"></span>
+        <span class="brick brick-three"></span>
+        <span class="spark">✳</span>
+      </div>
+    </section>
+
+    <!-- Product collection -->
+    <section class="collection section" id="collection">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">THE CURRENT LINEUP</div>
+          <h2>Shop minifigures<span class="period">.</span></h2>
+        </div>
+
+        <span id="result-count" class="result-count">0 items</span>
+      </div>
+
+      <div class="toolbar">
+        <label class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input
+            id="search"
+            type="search"
+            placeholder="Search figures..."
+            aria-label="Search figures"
+          >
+        </label>
+
+        <div class="filters" role="group" aria-label="Filter by availability">
+          <button type="button" class="filter active" data-filter="all">
+            All figures
+          </button>
+
+          <button type="button" class="filter" data-filter="in">
+            In stock
+          </button>
+
+          <button type="button" class="filter" data-filter="out">
+            Sold out
+          </button>
+        </div>
+      </div>
+
+      <div
+        class="category-row"
+        id="categories"
+        aria-label="Filter by category"
+      ></div>
+
+      <div
+        class="product-grid"
+        id="product-grid"
+        aria-live="polite"
+      ></div>
+
+      <div class="empty-state hidden" id="empty-state">
+        <span aria-hidden="true">⌕</span>
+        <h3>No figures found</h3>
+        <p>Try a different search or clear your filters.</p>
+
+        <button type="button" class="button button-dark" id="clear-filters">
+          Clear filters
+        </button>
+      </div>
+    </section>
+
+    <!-- Dedicated product details page (shown when a product is selected) -->
+    <section id="product-page" class="product-page section hidden" aria-live="polite">
+      <button type="button" class="back-to-shop" id="back-to-shop">← Back to collection</button>
+      <div id="product-page-content"></div>
+    </section>
+
+    <!-- Contact information -->
+    <div class="contact-note" id="contact-note">
+      <p>Have a question or want to order a figure?</p>
+      <button type="button" class="button button-dark" id="contact-link">Contact the shop owner</button>
+    </div>
+
+    <!-- Contact popup -->
+    <div
+      id="myPopup"
+      class="popup"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="contactPopupTitle"
+    >
+      <div class="popup-box">
+        <h2 id="contactPopupTitle">Contact ZBlock</h2>
+
+        <p>Telegram: @adorianhi</p>
+        <p>Viber: 09780865919</p>
+        <p>TikTok: @buildwzblocks</p>
+
+        <button type="button" class="button button-dark" onclick="closePopup()">
+          Close
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <a class="brand footer-brand" href="#" aria-label="ZBlock home">
+      <span class="brand-mark" aria-hidden="true">▦</span>
+
+      <span>
+        <strong>ZBLOCKS</strong>
+        <small>THE MINIFIGURE MARKET</small>
+      </span>
+    </a>
+
+    <span>Made for minifigure collectors.</span>
+  </footer>
+
+  <!-- Load JavaScript after the page elements -->
+  <!-- Public storefront inventory uses the Supabase publishable/anon key only. -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+

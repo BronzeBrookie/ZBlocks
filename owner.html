@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="theme-color" content="#20201d">
+  <title>ZBlock Owner Tools</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="owner-page">
+  <header class="site-header owner-header">
+    <a class="brand" href="index.html" aria-label="Return to ZBlock storefront">
+      <span class="brand-mark" aria-hidden="true">▦</span>
+      <span><strong>ZBlocks</strong><small>PRIVATE OWNER TOOLS</small></span>
+    </a>
+    <a class="owner-store-link" href="index.html">View storefront ↗</a>
+  </header>
+
+  <main class="owner-main">
+    <section class="owner-intro">
+      <div class="eyebrow">ZBLOCK MANAGEMENT</div>
+      <h1>Owner tools<span class="period">.</span></h1>
+      <p>This page is not linked from the public storefront. Sign in with the owner account to manage shared products and stock.</p>
+    </section>
+
+    <p id="backend-status" class="admin-warning" role="status">Checking Supabase configuration…</p>
+
+    <section class="owner-card" id="admin-login-section">
+      <h2>Owner sign in</h2>
+      <p class="owner-muted">Use the account you created in Supabase. There is no public sign-up form.</p>
+      <form id="admin-login-form" class="product-form">
+        <div class="form-grid">
+          <label>Email address
+            <input id="admin-email" type="email" autocomplete="username" required>
+          </label>
+          <label>Password
+            <input id="admin-password" type="password" autocomplete="current-password" required>
+          </label>
+        </div>
+        <button class="button button-yellow" id="admin-login-button" type="submit">Sign in</button>
+        <p id="login-message" class="admin-message" role="status"></p>
+      </form>
+    </section>
+
+    <section class="owner-card" id="admin-denied" hidden>
+      <h2>Owner access not granted</h2>
+      <p>This account is signed in but is not authorized to manage ZBlock. Only the account listed in the Supabase <code>admin_users</code> table can make changes.</p>
+      <button type="button" class="button button-light" id="denied-signout">Sign out</button>
+    </section>
+
+    <section class="owner-card" id="admin-tools" hidden>
+      <div class="admin-session-row">
+        <p id="admin-session-label">Signed in as owner.</p>
+        <button type="button" class="button button-light" id="admin-signout">Sign out</button>
+      </div>
+
+      <form id="product-form" class="product-form">
+        <h2>Add a product</h2>
+        <div class="form-grid">
+          <label>Product name
+            <input required id="new-name" maxlength="100" placeholder="e.g. Ice Warrior">
+          </label>
+          <label>Price (MMK)
+            <input required id="new-price" type="number" min="1" step="1" placeholder="12000">
+          </label>
+          <label>Total stock (used if variants are blank)
+            <input required id="new-stock" type="number" min="0" step="1" value="1">
+          </label>
+          <label>Category
+            <select id="new-category"><option>ADVENTURE</option><option>NINJA</option><option>KNIGHTS</option><option>SPACE</option><option>OTHER</option><option>SETS</option></select>
+          </label>
+          <label class="wide">Detailed description
+            <textarea id="new-description" rows="3" maxlength="500" placeholder="Condition, included pieces, size, etc."></textarea>
+          </label>
+          <label class="wide">Colour / variant stock (optional)
+            <input id="new-variants" placeholder="Black: 2, Red: 1, Blue: 0">
+            <small>Separate variants with commas. Example: Black: 2, Red: 1.</small>
+          </label>
+          <label class="wide">Image URLs (optional; separate with commas)
+            <input id="new-image" type="text" placeholder="https://image1.jpg, https://image2.jpg">
+          </label>
+        </div>
+        <button class="button button-yellow" type="submit">＋ Add product</button>
+      </form>
+
+      <h2 class="inventory-heading">Edit current inventory</h2>
+      <p class="owner-muted">Stock changes are saved to the shared online catalogue.</p>
+      <div id="inventory-list" class="inventory-list"></div>
+      <p id="admin-message" class="admin-message" role="status"></p>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="owner.js"></script>
+</body>
+</html>
