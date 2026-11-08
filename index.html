@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#20201d">
-  <meta name="description" content="Browse minifigures at ZBlock, the Burmese LEGO marketplace.">
+  <meta name="description" content="Browse minifigures at ZBlocks, the Burmese LEGO marketplace.">
   <title>ZBlocks</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -13,7 +13,7 @@
   <!-- Header -->
   <header class="site-header">
     <div class="brand-group">
-      <a class="logo" href="#" aria-label="ZBlock home">
+      <a class="logo" href="#collection" aria-label="ZBlock home">
         <img
           src="Images/Smiling LEGO Head with Curtain Hair.png"
           alt="ZBlock logo"
@@ -22,7 +22,7 @@
         >
       </a>
 
-      <a class="brand" href="#" aria-label="ZBlock home">
+      <a class="brand" href="#collection" aria-label="ZBlock home">
         <span>
           <strong>ZBlocks</strong>
           <small>THE BURMESE LEGO MARKETPLACE</small>
@@ -80,7 +80,7 @@
           <h2>Shop minifigures<span class="period">.</span></h2>
         </div>
 
-        <span id="result-count" class="result-count">0 items</span>
+        <span id="result-count" class="result-count" role="status" aria-live="polite">0 items</span>
       </div>
 
       <div class="toolbar">
@@ -112,6 +112,7 @@
       <div
         class="category-row"
         id="categories"
+        role="group"
         aria-label="Filter by category"
       ></div>
 
@@ -154,39 +155,42 @@
     >
       <div class="popup-box">
         <h2 id="contactPopupTitle">Contact ZBlock</h2>
-          <p>
-            <a href="https://t.me/adorianhi" target="_blank" rel="noopener noreferrer">
-              <img
-                src="https://cdn.simpleicons.org/telegram/26A5E4"
-                alt="Telegram"
-                width="20"
-                style="vertical-align: middle; margin-right: 8px;"
-              >
-              @adorianhi
-            </a>
-          </p>
-          <p>
-            <a href="viber://chat?number=%2B959780865919">
-              <img
-                src="https://cdn.simpleicons.org/viber/7360F2"
-                alt="Viber"
-                width="20"
-                style="vertical-align: middle; margin-right: 8px;"
-              >
-              09780865919
-            </a>
-          </p>
-          <p>
-            <a href="https://www.tiktok.com/@buildwzblocks" target="_blank" rel="noopener noreferrer">
-              <img
-                src="https://cdn.simpleicons.org/tiktok/000000"
-                alt="TikTok"
-                width="20"
-                style="vertical-align: middle; margin-right: 8px;"
-              >
-              @buildwzblocks
-            </a>
-          </p>
+        <p>
+          <a href="https://t.me/adorianhi" target="_blank" rel="noopener noreferrer">
+            <img
+              src="https://cdn.simpleicons.org/telegram/26A5E4"
+              alt=""
+              aria-hidden="true"
+              width="20"
+              style="vertical-align: middle; margin-right: 8px;"
+            >
+            @adorianhi
+          </a>
+        </p>
+        <p>
+          <a href="viber://chat?number=%2B959780865919">
+            <img
+              src="https://cdn.simpleicons.org/viber/7360F2"
+              alt=""
+              aria-hidden="true"
+              width="20"
+              style="vertical-align: middle; margin-right: 8px;"
+            >
+            09780865919
+          </a>
+        </p>
+        <p>
+          <a href="https://www.tiktok.com/@buildwzblocks" target="_blank" rel="noopener noreferrer">
+            <img
+              src="https://cdn.simpleicons.org/tiktok/000000"
+              alt=""
+              aria-hidden="true"
+              width="20"
+              style="vertical-align: middle; margin-right: 8px;"
+            >
+            @buildwzblocks
+          </a>
+        </p>
 
         <button type="button" class="button button-dark" onclick="closePopup()">
           Close
@@ -198,7 +202,7 @@
 
   <!-- Footer -->
   <footer>
-    <a class="brand footer-brand" href="#" aria-label="ZBlock home">
+    <a class="brand footer-brand" href="#collection" aria-label="ZBlock home">
       <span class="brand-mark" aria-hidden="true">▦</span>
 
       <span>
@@ -207,7 +211,7 @@
       </span>
     </a>
 
-    <span>Made for burmese lego collectors.</span>
+    <span>Made for Burmese LEGO collectors.</span>
   </footer>
 
   <!-- Load JavaScript after the page elements -->
